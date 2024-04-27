@@ -48,3 +48,20 @@ def buscar(request):
         return render(request,"buscar.html",context)
     else: 
         return redirect('index')
+    
+def crear_libros(request):
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+        
+        redirect('crearLibros')
+
+# " Select * FROM" Book es como estar 
+#haciendo un Book.objects.all()
+    context = {
+        'form': BookForm(),
+        'book': Book.objects.all(),
+
+    }
+    return render(request, 'crearbooks.html', context)
