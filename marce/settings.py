@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'app',
     'cloudinary',
     'cloudinary_storage',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
